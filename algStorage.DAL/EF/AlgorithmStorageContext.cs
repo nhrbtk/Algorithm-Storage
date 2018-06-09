@@ -13,6 +13,6 @@ namespace algStorage.DAL.EF
         public DbSet<User> Users { get; set; }
         public DbSet<Algorithm> Algorithms { get; set; }
         public DbSet<AccessGroup> AccessGroups { get; set; }
-        public AlgorithmStorageContext(string connectionString) : base(connectionString) { }
+        public AlgorithmStorageContext() : base("DBConnection") { }
     }
 }

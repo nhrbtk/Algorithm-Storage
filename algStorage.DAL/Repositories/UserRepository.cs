@@ -12,9 +12,9 @@ namespace algStorage.DAL.Repositories
     public class UserRepository : IRepository<User>
     {
         private AlgorithmStorageContext db;
-        public UserRepository(AlgorithmStorageContext context)
+        public UserRepository()
         {
-            this.db = context;
+            this.db = new AlgorithmStorageContext();
         }
 
         public void Create(User user)
