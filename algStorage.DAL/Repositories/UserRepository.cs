@@ -46,7 +46,7 @@ namespace algStorage.DAL.Repositories
         
         public void Save()
         {
-            db.SaveChanges();
+            db.SaveChanges(); 
         }
     }
 }
