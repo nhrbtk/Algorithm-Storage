@@ -12,7 +12,10 @@ namespace algStorage.DAL.Repositories
     public class AccessGroupRepository:IRepository<AccessGroup>
     {
         private AlgorithmStorageContext db;
-
+        public AccessGroupRepository()
+        {
+            db = new AlgorithmStorageContext();
+        }
         public void Create(AccessGroup accessGroup)
         {
             db.AccessGroups.Add(accessGroup);

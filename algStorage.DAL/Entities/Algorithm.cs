@@ -15,5 +15,10 @@ namespace algStorage.DAL.Entities
 
         public int UserId { get; set; }
         public User User { get; set; }
+        public ICollection<AccessGroup> AccessGroups { get; set; }
+        public Algorithm()
+        {
+            AccessGroups = new List<AccessGroup>();
+        }
     }
 }

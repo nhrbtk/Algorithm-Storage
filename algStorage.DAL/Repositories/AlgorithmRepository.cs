@@ -12,6 +12,10 @@ namespace algStorage.DAL.Repositories
     public class AlgorithmRepository : IRepository<Algorithm>
     {
         private AlgorithmStorageContext db;
+        public AlgorithmRepository()
+        {
+            db = new AlgorithmStorageContext();
+        }
         public void Create(Algorithm algorithm)
         {
             db.Algorithms.Add(algorithm);
