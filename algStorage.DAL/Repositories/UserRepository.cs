@@ -17,7 +17,7 @@ namespace algStorage.DAL.Repositories
             this.db = new AlgorithmStorageContext();
         }
 
-        public void Create(User user)
+        public virtual void Create(User user)
         {
             db.Users.Add(user);
         }
@@ -44,7 +44,7 @@ namespace algStorage.DAL.Repositories
             return db.Users;
         }
         
-        public void Save()
+        public virtual void Save()
         {
             db.SaveChanges(); 
         }

@@ -1,0 +1,14 @@
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\algStorage.BLL.dll
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\algStorage.BLL.pdb
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\algStorage.DAL.dll
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\EntityFramework.dll
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\algStorage.DAL.pdb
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\algStorage.DAL.dll.config
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\EntityFramework.xml
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\obj\Debug\algStorage.BLL.csprojResolveAssemblyReference.cache
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\obj\Debug\algStorage.BLL.csproj.CoreCompileInputs.cache
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\obj\Debug\algStorage.BLL.dll
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\obj\Debug\algStorage.BLL.pdb
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\algStorage.BLL.dll.config
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.BLL\bin\Debug\EntityFramework.SqlServer.xml

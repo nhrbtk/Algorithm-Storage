@@ -10,6 +10,7 @@ namespace algStorage.DAL.EF
 {
     public class AlgorithmStorageContext : DbContext
     {
+        //static private string connectionString = "DBConnection";
         public DbSet<User> Users { get; set; }
         public DbSet<Algorithm> Algorithms { get; set; }
         public DbSet<AccessGroup> AccessGroups { get; set; }
