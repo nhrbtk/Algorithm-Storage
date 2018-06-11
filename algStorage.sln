@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.BLL", "algStorag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.BLL.Tests", "algStorage.BLL.Tests\algStorage.BLL.Tests.csproj", "{91FA71D5-C9DF-46CE-AC25-30DD4C3885A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.PL", "algStorage.PL\algStorage.PL.csproj", "{904A39FC-F545-49F4-BF7C-A03F743C6124}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.PL", "algStorage.PL\algStorage.PL.csproj", "{D886B2F3-241A-42B4-9280-172ADEAFE80C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{91FA71D5-C9DF-46CE-AC25-30DD4C3885A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91FA71D5-C9DF-46CE-AC25-30DD4C3885A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91FA71D5-C9DF-46CE-AC25-30DD4C3885A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{904A39FC-F545-49F4-BF7C-A03F743C6124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{904A39FC-F545-49F4-BF7C-A03F743C6124}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{904A39FC-F545-49F4-BF7C-A03F743C6124}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{904A39FC-F545-49F4-BF7C-A03F743C6124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D886B2F3-241A-42B4-9280-172ADEAFE80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D886B2F3-241A-42B4-9280-172ADEAFE80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D886B2F3-241A-42B4-9280-172ADEAFE80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D886B2F3-241A-42B4-9280-172ADEAFE80C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
