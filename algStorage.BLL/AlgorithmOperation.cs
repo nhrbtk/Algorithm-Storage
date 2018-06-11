@@ -18,6 +18,19 @@ namespace algStorage.BLL
             algorithmRepository = new AlgorithmRepository();
         }
 
+        public IEnumerable<Algorithm> GetUserAlgoritms(int userId)
+        {
+            return algorithmRepository.GetAll().Where(u => u.UserId == userId);
+        }
+
+        public IEnumerable<Algorithm> GetAllAlgorithms(bool role)
+        {
+            if (role)
+                return algorithmRepository.GetAll();
+            else
+                return null;
+        }
+
         public bool AddAlgorithm(int userId, string title, string code, string input, string output)
         {
             try
