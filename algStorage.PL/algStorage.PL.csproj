@@ -52,17 +52,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AdminForm.cs">
+    <Compile Include="Forms\AddUserAccessForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="Forms\AddUserAccessForm.Designer.cs">
+      <DependentUpon>AddUserAccessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllFilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllFilesForm.Designer.cs">
+      <DependentUpon>AllFilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllUsersForm.Designer.cs">
+      <DependentUpon>AllUsersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChooseFileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChooseFileForm.Designer.cs">
+      <DependentUpon>ChooseFileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyProfileInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyProfileInfoForm.Designer.cs">
+      <DependentUpon>MyProfileInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OtherUsersAlgorithmsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OtherUsersAlgorithmsForm.Designer.cs">
+      <DependentUpon>OtherUsersAlgorithmsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RegistrationForm.cs">
       <SubType>Form</SubType>
@@ -78,8 +108,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddUserAccessForm.resx">
+      <DependentUpon>AddUserAccessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllFilesForm.resx">
+      <DependentUpon>AllFilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllUsersForm.resx">
+      <DependentUpon>AllUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChooseFileForm.resx">
+      <DependentUpon>ChooseFileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyProfileInfoForm.resx">
+      <DependentUpon>MyProfileInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OtherUsersAlgorithmsForm.resx">
+      <DependentUpon>OtherUsersAlgorithmsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
@@ -117,6 +165,10 @@
     <ProjectReference Include="..\algStorage.BLL\algStorage.BLL.csproj">
       <Project>{4086f62a-d079-4eed-aead-72838839681e}</Project>
       <Name>algStorage.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\algStorage.DAL\algStorage.DAL.csproj">
+      <Project>{ad3c24b7-e633-4cc9-bb45-2f27d2413874}</Project>
+      <Name>algStorage.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

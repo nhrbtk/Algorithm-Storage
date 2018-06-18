@@ -94,6 +94,7 @@
             // 
             // ToLoginForm_btn
             // 
+            this.ToLoginForm_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ToLoginForm_btn.Location = new System.Drawing.Point(111, 158);
             this.ToLoginForm_btn.Name = "ToLoginForm_btn";
             this.ToLoginForm_btn.Size = new System.Drawing.Size(146, 23);
@@ -104,8 +105,10 @@
             // 
             // RegistrationForm
             // 
+            this.AcceptButton = this.registration_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.ToLoginForm_btn;
             this.ClientSize = new System.Drawing.Size(284, 193);
             this.Controls.Add(this.ToLoginForm_btn);
             this.Controls.Add(this.admin_checkbox);

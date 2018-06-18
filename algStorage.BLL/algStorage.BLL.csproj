@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlgorithmOperation.cs" />
+    <Compile Include="GroupOperation.cs" />
     <Compile Include="IsMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserOperation.cs" />

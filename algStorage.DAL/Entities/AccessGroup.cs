@@ -9,7 +9,8 @@ namespace algStorage.DAL.Entities
     public class AccessGroup
     {
         public int Id { get; set; }
-
+        public int UserId { get; set; }
+        public int AlgorithmId { get; set; }
         public ICollection<User> Users { get; set; }
         public ICollection<Algorithm> Algoritms { get; set; }
         public AccessGroup()

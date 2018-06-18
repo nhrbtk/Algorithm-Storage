@@ -19,6 +19,73 @@ namespace algStorage.BLL
             userRepository = new UserRepository();
         }
 
+        
+
+        public List<int> GetUsersId()
+        {
+            try
+            {
+                List<int> result = new List<int>();
+                var users = userRepository.GetAll();
+                foreach(var u in users)
+                {
+                    result.Add(u.Id);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<string> GetUsernames()
+        {
+            try
+            {
+                List<string> result = new List<string>();
+                var users = userRepository.GetAll();
+                foreach (var u in users)
+                {
+                    result.Add(u.Username);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<string> GetUsernames(List<int> userIds)
+        {
+            try
+            {
+                List<string> result = new List<string>();
+                foreach (var uIds in userIds)
+                {
+                    result.Add(userRepository.Read(uIds).Username);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public string GetUsername(int id)
+        {
+            try
+            {
+                return userRepository.Read(id).Username;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
+        }
+
         public bool UserAdd(string username, string password, bool role)
         {
             try
@@ -76,11 +143,11 @@ namespace algStorage.BLL
             }
         }
 
-        public bool UserAuthorization(string username)
+        public bool UserAuthorization(int id)
         {
             try
             {
-                return userRepository.GetAll().Single(u => u.Username == username).Role;
+                return userRepository.Read(id).Role;
             }
             catch (Exception)
             {
@@ -92,7 +159,7 @@ namespace algStorage.BLL
         {
             try
             {
-                User user = userRepository.GetAll().Single(u => u.Id == id);
+                User user = userRepository.Read(id);
                 user.Password = newPassword;
 
                 userRepository.Update(user);

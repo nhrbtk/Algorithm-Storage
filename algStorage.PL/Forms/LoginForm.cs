@@ -26,18 +26,13 @@ namespace algStorage.PL.Forms
             if (userOperation.UserAuthentication(username_tb.Text, password_tb.Text))
             {
                 MessageBox.Show("Вхід виконано!", "Вітаємо!", MessageBoxButtons.OK);
-                if (userOperation.UserAuthorization(username_tb.Text))
-                {
-                    AdminForm AF = new AdminForm();
-                    Hide();
-                    AF.Show();
-                }
+
+                UserForm UF = new UserForm(userOperation.GetUserId(username_tb.Text), userOperation.UserAuthorization(userOperation.GetUserId(username_tb.Text)));
+                Hide();
+                if (UF.ShowDialog() == DialogResult.Cancel)
+                    Show();
                 else
-                {
-                    UserForm UF = new UserForm(userOperation.GetUserId(username_tb.Text));
-                    Hide();
-                    UF.Show();
-                }
+                    Close();
             }
             else
                 MessageBox.Show("Невірне ім'я користувача або пароль!\nСпробуйте знову.", "Помилка!", MessageBoxButtons.OK);

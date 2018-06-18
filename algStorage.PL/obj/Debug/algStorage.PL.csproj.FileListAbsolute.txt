@@ -19,3 +19,9 @@ D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\bin\Debug\algStorage.DAL.pd
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\bin\Debug\algStorage.DAL.dll.config
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.exe
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.pdb
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.UserForm.resources
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.ChooseFileForm.resources
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.AllFilesForm.resources
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.AllUsersForm.resources
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.MyProfileInfoForm.resources
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.AddUserAccessForm.resources
