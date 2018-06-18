@@ -175,8 +175,19 @@ namespace algStorage.PL.Forms
 
         private void алгоритмиІншихКористувачівToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AllFilesForm ALF = new AllFilesForm();
-            ALF
+            OtherUsersAlgorithmsForm OUALF = new OtherUsersAlgorithmsForm(USERID);
+            
+            if(OUALF.ShowDialog()==DialogResult.OK)
+            {
+                IsActive = true;
+                int uId = UO.GetUserId(OUALF.userList_cb.SelectedItem.ToString());
+                string selected = OUALF.algorithmList_listbox.SelectedItem.ToString();
+                ALGORITHMID = AO.GetAlgorithmID(uId, selected);
+                main_rtb.Text = AO.GetAlgoritmCode(ALGORITHMID);
+                input_rtb.Text = AO.GetAlgoritmInput(ALGORITHMID);
+                output_rtb.Text = AO.GetAlgoritmOutput(ALGORITHMID);
+                title_tb.Text = selected;
+            }
         }
     }
 }

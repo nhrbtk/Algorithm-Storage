@@ -25,3 +25,4 @@ D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.For
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.AllUsersForm.resources
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.MyProfileInfoForm.resources
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.AddUserAccessForm.resources
+D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.PL\obj\Debug\algStorage.PL.Forms.OtherUsersAlgorithmsForm.resources

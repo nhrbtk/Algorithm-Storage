@@ -61,7 +61,7 @@
             this.MaximizeBox = false;
             this.Name = "AllUsersForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Список користувачів";
             this.ResumeLayout(false);
 

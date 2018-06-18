@@ -104,7 +104,7 @@
             this.Controls.Add(this.usersList_listbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AllFilesForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Список усіх алгоритмів";
             this.ResumeLayout(false);
             this.PerformLayout();

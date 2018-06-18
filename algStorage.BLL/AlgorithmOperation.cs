@@ -18,10 +18,24 @@ namespace algStorage.BLL
             algorithmRepository = new AlgorithmRepository();
         }
 
-        public IEnumerable<Algorithm> GetUserAlgoritms(int userId)
+        public List<int> GetUserAlgoritms(int userId)
         {
-            return algorithmRepository.GetAll().Where(u => u.UserId == userId);
+            try
+            {
+                List<int> result = new List<int>();
+                var list = algorithmRepository.GetAll().Where(u => u.UserId == userId);
+                foreach(var l in list)
+                {
+                    result.Add(l.Id);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
+
 
         public int GetAlgorithmID(int userId, string title)
         {
@@ -135,6 +149,16 @@ namespace algStorage.BLL
             return returnList;
         }
 
+        public List<string> GetTitles(List<int> algorithmIds)
+        {
+            List<string> returnList = new List<string>();
+            foreach (var a in algorithmIds)
+            {
+                returnList.Add(algorithmRepository.Read(a).Title);
+            }
+            return returnList;
+        }
+
         public bool DeleteAlgorithm(int id)
         {
             try
@@ -169,21 +193,17 @@ namespace algStorage.BLL
 
         }
 
-        public List<int> GetAlgorithmsAuthors(List<int> algorithmIds)
+        public List<int> GetAlgorithmsToShow(List<int> accessedAlgorithms, List<int> authorAlgorithms)
         {
             try
             {
-                List<int> result = new List<int>();
-                foreach(var a in algorithmIds)
-                {
-                    result.Add(algorithmRepository.Read(a).UserId);
-                }
+                List<int> algorithmToShow = accessedAlgorithms.Intersect(authorAlgorithms).ToList();
+                return algorithmToShow;
             }
             catch (Exception)
             {
                 return null;
             }
-
         }
 
 

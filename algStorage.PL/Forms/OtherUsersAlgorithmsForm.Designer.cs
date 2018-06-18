@@ -57,7 +57,7 @@
             // 
             this.open_btn.Location = new System.Drawing.Point(12, 250);
             this.open_btn.Name = "open_btn";
-            this.open_btn.Size = new System.Drawing.Size(120, 23);
+            this.open_btn.Size = new System.Drawing.Size(221, 23);
             this.open_btn.TabIndex = 8;
             this.open_btn.Text = "Відкрити";
             this.open_btn.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             this.algorithmList_listbox.FormattingEnabled = true;
             this.algorithmList_listbox.Location = new System.Drawing.Point(12, 71);
             this.algorithmList_listbox.Name = "algorithmList_listbox";
-            this.algorithmList_listbox.Size = new System.Drawing.Size(120, 173);
+            this.algorithmList_listbox.Size = new System.Drawing.Size(221, 173);
             this.algorithmList_listbox.TabIndex = 7;
             // 
             // userList_cb
@@ -76,21 +76,26 @@
             this.userList_cb.FormattingEnabled = true;
             this.userList_cb.Location = new System.Drawing.Point(12, 25);
             this.userList_cb.Name = "userList_cb";
-            this.userList_cb.Size = new System.Drawing.Size(121, 21);
+            this.userList_cb.Size = new System.Drawing.Size(222, 21);
             this.userList_cb.TabIndex = 11;
+            this.userList_cb.SelectedIndexChanged += new System.EventHandler(this.userList_cb_SelectedIndexChanged);
             // 
             // OtherUsersAlgorithmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(143, 281);
+            this.ClientSize = new System.Drawing.Size(245, 281);
             this.Controls.Add(this.userList_cb);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.open_btn);
             this.Controls.Add(this.algorithmList_listbox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "OtherUsersAlgorithmsForm";
-            this.Text = "OtherUsersAlgorithmsForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Доступні алгоритми";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,6 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button open_btn;
         protected internal System.Windows.Forms.ListBox algorithmList_listbox;
-        private System.Windows.Forms.ComboBox userList_cb;
+        protected internal System.Windows.Forms.ComboBox userList_cb;
     }
 }

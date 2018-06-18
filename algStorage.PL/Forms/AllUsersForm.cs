@@ -16,11 +16,13 @@ namespace algStorage.PL.Forms
     {
         private AlgorithmOperation AO;
         private UserOperation UO;
+        private GroupOperation GO;
         public AllUsersForm()
         {
             InitializeComponent();
             UO = new UserOperation();
             AO = new AlgorithmOperation();
+            GO = new GroupOperation();
             usersList_listbox.DataSource = UO.GetUsernames();
         }
 
@@ -30,8 +32,11 @@ namespace algStorage.PL.Forms
             {
                 int uId = UO.GetUserId(usersList_listbox.SelectedItem.ToString());
                 var algs = AO.GetUserAlgoritms(uId);
+                var accessedAlgorithms = GO.GetAccessedAlgorithms(uId);
+                foreach (var a in accessedAlgorithms)
+                    GO.DeleteAccess(uId, a);
                 foreach (var a in algs)
-                    AO.DeleteAlgorithm(a.Id);
+                    AO.DeleteAlgorithm(a);
                 UO.UserDelete(uId);
                 AO.DeleteDirectory(uId);
                 usersList_listbox.DataSource = UO.GetUsernames();

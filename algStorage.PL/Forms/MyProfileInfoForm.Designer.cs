@@ -124,7 +124,7 @@
             this.MaximizeBox = false;
             this.Name = "MyProfileInfoForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Мій профіль";
             this.ResumeLayout(false);
             this.PerformLayout();

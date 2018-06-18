@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using algStorage.DAL.Repositories;
+using algStorage.DAL.Entities;
 
 namespace algStorage.BLL.Tests
 {
@@ -15,27 +16,53 @@ namespace algStorage.BLL.Tests
     { 
 
         [TestMethod()]
-        public void UserAuthenticationTest()
+        public void UserAuthenticationTest_falseReturned()
         {
             //arrange
-            UserOperation uo = new UserOperation();
-            string name = "TestName";
-            string pass = "TestPass";
-            bool role = false;
-
-            bool expected = true;
+            var mock = new Mock<UserRepository>();
+            mock.Setup(a => a.GetAll());
+            UserOperation userOp = new UserOperation(mock.Object);
 
             //act
-            bool actualAdd = uo.UserAdd(name, pass, role);
-
-            bool actualAuth = uo.UserAuthentication(name, pass);
-
-            bool actualDelete = uo.UserDelete(uo.GetUserId(name));
+            bool actual = userOp.UserAuthentication("TESTINGUSERNAME", "TESTINGPASSWORD");
 
             //assert
-            Assert.AreEqual(expected, actualAdd);
-            Assert.AreEqual(expected, actualAuth);
-            Assert.AreEqual(expected, actualDelete);
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod()]
+        public void UserAdd_trueReturned()
+        {
+            //arrange
+            var mock = new Mock<UserRepository>();
+            UserOperation userOp = new UserOperation(mock.Object);
+
+            //act
+            bool actual = userOp.UserAdd("helloworld","password", true);
+
+            //assert
+            Assert.IsTrue(actual);
+        }
+        /// <summary>
+        /// ////////////////////
+        /// </summary>
+        [TestMethod()]
+        public void UserAdd_falseReturned()
+        {
+            //arrange
+            var mock = new Mock<UserRepository>();
+            string un = "username";
+            string pw = "password";
+            bool role = false;
+            mock.Setup(a => a.Create(new User { Username = un, Password = pw, Role = role }));
+            mock.Setup(a => a.GetAll());
+            UserOperation userOp = new UserOperation(mock.Object);
+
+            //act
+            bool actual = userOp.UserAdd(un, pw, role);
+
+            //assert
+            Assert.IsFalse(actual);
         }
     }
 }

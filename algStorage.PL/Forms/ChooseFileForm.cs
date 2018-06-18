@@ -15,11 +15,13 @@ namespace algStorage.PL.Forms
     public partial class ChooseFileForm : Form
     {
         private AlgorithmOperation AO;
+        private GroupOperation GO;
         private int USERID;
         public ChooseFileForm(int _userId)
         {
             InitializeComponent();
             AO = new AlgorithmOperation();
+            GO = new GroupOperation();
             USERID = _userId;
             algList_listbox.DataSource = AO.GetTitles(USERID);
         }
@@ -33,7 +35,14 @@ namespace algStorage.PL.Forms
         {
             if(MessageBox.Show($"Ви впевнені, що хочете видалити алгоритм '{algList_listbox.SelectedItem.ToString()}'?", "Видалення", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (!AO.DeleteAlgorithm(AO.GetAlgorithmID(USERID, algList_listbox.SelectedItem.ToString())))
+                int algId = AO.GetAlgorithmID(USERID, algList_listbox.SelectedItem.ToString());
+
+                var links = GO.GetUsersWithAccess(algId);
+
+                foreach (var l in links)
+                    GO.DeleteAccess(l, algId);
+
+                if (!AO.DeleteAlgorithm(algId))
                     MessageBox.Show("Щось пішло не так", "Помилка", MessageBoxButtons.OK);
                 else
                     algList_listbox.DataSource = AO.GetTitles(USERID);

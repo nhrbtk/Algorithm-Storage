@@ -19,6 +19,11 @@ namespace algStorage.BLL
             userRepository = new UserRepository();
         }
 
+        public UserOperation(UserRepository _ur)
+        {
+            userRepository = _ur;
+        }
+
         
 
         public List<int> GetUsersId()
@@ -176,11 +181,7 @@ namespace algStorage.BLL
         {
             try
             {
-                User user = userRepository.GetAll().Single(u => u.Username == username);
-                if (user != null)
-                    return user.Id;
-                else
-                    return 0;
+                return userRepository.GetAll().Single(u => u.Username == username).Id;                
             }
             catch(Exception)
             {

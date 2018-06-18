@@ -121,7 +121,7 @@
             this.MaximizeBox = false;
             this.Name = "RegistrationForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Реєстрація";
             this.ResumeLayout(false);
             this.PerformLayout();

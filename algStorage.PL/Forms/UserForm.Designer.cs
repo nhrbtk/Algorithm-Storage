@@ -35,6 +35,7 @@
             this.сховищеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.відкритиАлгоритмToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.надатиДоступІншимToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.алгоритмиІншихКористувачівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.всіАлгоритмиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.зберегтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,6 @@
             this.save_btn = new System.Windows.Forms.Button();
             this.log_label = new System.Windows.Forms.Label();
             this.log_timer = new System.Windows.Forms.Timer(this.components);
-            this.алгоритмиІншихКористувачівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +112,13 @@
             this.надатиДоступІншимToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.надатиДоступІншимToolStripMenuItem.Text = "Надати доступ іншим";
             this.надатиДоступІншимToolStripMenuItem.Click += new System.EventHandler(this.надатиДоступІншимToolStripMenuItem_Click);
+            // 
+            // алгоритмиІншихКористувачівToolStripMenuItem
+            // 
+            this.алгоритмиІншихКористувачівToolStripMenuItem.Name = "алгоритмиІншихКористувачівToolStripMenuItem";
+            this.алгоритмиІншихКористувачівToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.алгоритмиІншихКористувачівToolStripMenuItem.Text = "Алгоритми інших користувачів";
+            this.алгоритмиІншихКористувачівToolStripMenuItem.Click += new System.EventHandler(this.алгоритмиІншихКористувачівToolStripMenuItem_Click);
             // 
             // всіАлгоритмиToolStripMenuItem
             // 
@@ -240,13 +247,6 @@
             this.log_label.Text = "Файл записано";
             this.log_label.Visible = false;
             // 
-            // алгоритмиІншихКористувачівToolStripMenuItem
-            // 
-            this.алгоритмиІншихКористувачівToolStripMenuItem.Name = "алгоритмиІншихКористувачівToolStripMenuItem";
-            this.алгоритмиІншихКористувачівToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.алгоритмиІншихКористувачівToolStripMenuItem.Text = "Алгоритми інших користувачів";
-            this.алгоритмиІншихКористувачівToolStripMenuItem.Click += new System.EventHandler(this.алгоритмиІншихКористувачівToolStripMenuItem_Click);
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,7 +265,7 @@
             this.MaximizeBox = false;
             this.Name = "UserForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Сховище алгоритмів";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

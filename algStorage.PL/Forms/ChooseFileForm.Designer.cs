@@ -76,7 +76,7 @@
             this.MaximizeBox = false;
             this.Name = "ChooseFileForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Список файлів";
             this.ResumeLayout(false);
 

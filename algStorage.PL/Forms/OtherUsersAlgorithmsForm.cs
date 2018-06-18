@@ -27,16 +27,29 @@ namespace algStorage.PL.Forms
             UO = new UserOperation();
             AO = new AlgorithmOperation();
 
-            var AL = GO.GetAccessedAlgorithms(userId);
-            var UL = AO.GetAlgorithmsAuthors(AL);
-            userList_cb.DataSource = UO.GetUsernames(UL);
-
-            algorithmList_listbox.DataSource = AL;
+            userList_cb.DataSource = UO.GetUsernames();
+            
         }
 
         private void open_btn_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (algorithmList_listbox.SelectedIndex != -1)
+                DialogResult = DialogResult.OK;
+            else
+                MessageBox.Show("Ви не вибрали файл", "Помилка", MessageBoxButtons.OK);
+        }
+
+        private void userList_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (userList_cb.SelectedIndex != -1)
+            {
+                var AL = GO.GetAccessedAlgorithms(userId);
+                var algs = AO.GetUserAlgoritms(UO.GetUserId(userList_cb.SelectedItem.ToString()));
+                List<int> algorithmToShow = AO.GetAlgorithmsToShow(AL, algs);
+                
+
+                algorithmList_listbox.DataSource = AO.GetTitles(algorithmToShow);
+            }
         }
     }
 }

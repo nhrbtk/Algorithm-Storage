@@ -39,7 +39,7 @@ namespace algStorage.DAL.Repositories
                 db.Users.Remove(user);
         }
 
-        public IEnumerable<User> GetAll()
+        public virtual IEnumerable<User> GetAll()
         {
             return db.Users;
         }
