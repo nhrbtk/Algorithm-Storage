@@ -53,6 +53,9 @@
             this.save_btn = new System.Windows.Forms.Button();
             this.log_label = new System.Windows.Forms.Label();
             this.log_timer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,15 +192,15 @@
             // 
             // main_rtb
             // 
-            this.main_rtb.Location = new System.Drawing.Point(0, 54);
+            this.main_rtb.Location = new System.Drawing.Point(0, 71);
             this.main_rtb.Name = "main_rtb";
-            this.main_rtb.Size = new System.Drawing.Size(730, 373);
+            this.main_rtb.Size = new System.Drawing.Size(730, 356);
             this.main_rtb.TabIndex = 1;
             this.main_rtb.Text = "";
             // 
             // input_rtb
             // 
-            this.input_rtb.Location = new System.Drawing.Point(736, 54);
+            this.input_rtb.Location = new System.Drawing.Point(736, 71);
             this.input_rtb.Name = "input_rtb";
             this.input_rtb.Size = new System.Drawing.Size(142, 96);
             this.input_rtb.TabIndex = 2;
@@ -247,11 +250,41 @@
             this.log_label.Text = "Файл записано";
             this.log_label.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Алгоритм";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(733, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Вхідні дані";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(733, 315);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Вихідні дані";
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 465);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.log_label);
             this.Controls.Add(this.save_btn);
             this.Controls.Add(this.title_label);
@@ -300,5 +333,8 @@
         private System.Windows.Forms.ToolStripMenuItem закритиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вийтиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem алгоритмиІншихКористувачівToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

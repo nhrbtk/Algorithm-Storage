@@ -54,14 +54,18 @@
     <Compile Include="UserOperation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\algStorage.DAL.ADO\algStorage.DAL_ADO.csproj">
+      <Project>{8662ada1-817b-4fc4-97d0-ce107f50ead9}</Project>
+      <Name>algStorage.DAL_ADO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\algStorage.DAL\algStorage.DAL.csproj">
       <Project>{ad3c24b7-e633-4cc9-bb45-2f27d2413874}</Project>
       <Name>algStorage.DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

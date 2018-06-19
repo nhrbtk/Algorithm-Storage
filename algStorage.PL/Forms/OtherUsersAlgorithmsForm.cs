@@ -14,20 +14,20 @@ namespace algStorage.PL.Forms
 {
     public partial class OtherUsersAlgorithmsForm : Form
     {
-        private GroupOperation GO;
-        private UserOperation UO;
-        private AlgorithmOperation AO;
+        private GroupOperation groupOperation;
+        private UserOperation userOperation;
+        private AlgorithmOperation algorithmOperation;
         private int userId;
-        public OtherUsersAlgorithmsForm(int _userId)
+        public OtherUsersAlgorithmsForm(int _userId, UserOperation _uo, AlgorithmOperation _ao, GroupOperation _go)
         {
             InitializeComponent();
 
             userId = _userId;
-            GO = new GroupOperation();
-            UO = new UserOperation();
-            AO = new AlgorithmOperation();
+            userOperation = _uo;
+            algorithmOperation = _ao;
+            groupOperation = _go;
 
-            userList_cb.DataSource = UO.GetUsernames();
+            userList_cb.DataSource = userOperation.GetUsernames();
             
         }
 
@@ -43,12 +43,12 @@ namespace algStorage.PL.Forms
         {
             if (userList_cb.SelectedIndex != -1)
             {
-                var AL = GO.GetAccessedAlgorithms(userId);
-                var algs = AO.GetUserAlgoritms(UO.GetUserId(userList_cb.SelectedItem.ToString()));
-                List<int> algorithmToShow = AO.GetAlgorithmsToShow(AL, algs);
+                var AL = groupOperation.GetAccessedAlgorithms(userId);
+                var algs = algorithmOperation.GetUserAlgoritms(userOperation.GetUserId(userList_cb.SelectedItem.ToString()));
+                List<int> algorithmToShow = algorithmOperation.GetAlgorithmsToShow(AL, algs);
                 
 
-                algorithmList_listbox.DataSource = AO.GetTitles(algorithmToShow);
+                algorithmList_listbox.DataSource = algorithmOperation.GetTitles(algorithmToShow);
             }
         }
     }

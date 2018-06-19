@@ -20,3 +20,17 @@ D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.c
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.csproj.CoreCompileInputs.cache
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.dll
 D:\Projects\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.pdb
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\algStorage.DAL.dll.config
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\algStorage.DAL.dll
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\algStorage.DAL.pdb
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\EntityFramework.dll
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\EntityFramework.xml
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.csprojResolveAssemblyReference.cache
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.csproj.CoreCompileInputs.cache
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.dll
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\obj\Debug\algStorage.DAL.pdb
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\algStorage.DAL.ADO.dll
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\algStorage.DAL.ADO.pdb
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL\bin\Debug\algStorage.DAL.ADO.dll.config

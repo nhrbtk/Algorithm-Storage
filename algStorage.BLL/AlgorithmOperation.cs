@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using algStorage.DAL.Repositories;
-using algStorage.DAL.Entities;
+
 using System.IO;
+
+using algStorage.DAL_ADO.Domain;
+using algStorage.DAL_ADO.Repositories;
 
 namespace algStorage.BLL
 {
     public class AlgorithmOperation
     {
         private static string startPath = @"D:\algStorage\Storage\";
-        private AlgorithmRepository algorithmRepository;
+        private IRepository<Algorithm> algorithmRepository;
         public AlgorithmOperation()
         {
-            algorithmRepository = new AlgorithmRepository();
+            //algorithmRepository = new AlgorithmRepository();
+        }
+
+        public AlgorithmOperation(IRepository<Algorithm> _ar)
+        {
+            algorithmRepository = _ar;
         }
 
         public List<int> GetUserAlgoritms(int userId)
@@ -89,7 +96,6 @@ namespace algStorage.BLL
                 if (!TitleExists(userId, title))
                 {
                     algorithmRepository.Create(new Algorithm { UserId = userId, Title = title, Path = codePath, Input = inputPath, Output = outputPath });
-                    algorithmRepository.Save();
                 }
                 return true;
             }
@@ -169,7 +175,6 @@ namespace algStorage.BLL
                 File.Delete(alg.Output);
                 //Directory.Delete(Path.GetDirectoryName(alg.Path));
                 algorithmRepository.Delete(id);
-                algorithmRepository.Save();
                 return true;
             }
             catch (Exception)

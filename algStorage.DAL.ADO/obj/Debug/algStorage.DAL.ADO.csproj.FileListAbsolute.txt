@@ -1,0 +1,6 @@
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL.ADO\bin\Debug\algStorage.DAL.ADO.dll
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL.ADO\bin\Debug\algStorage.DAL.ADO.pdb
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL.ADO\obj\Debug\algStorage.DAL.ADO.csproj.CoreCompileInputs.cache
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL.ADO\obj\Debug\algStorage.DAL.ADO.dll
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL.ADO\obj\Debug\algStorage.DAL.ADO.pdb
+D:\KPI\TSPP\Algorithm-Storage\algStorage.DAL.ADO\obj\Debug\algStorage.DAL.ADO.csprojResolveAssemblyReference.cache

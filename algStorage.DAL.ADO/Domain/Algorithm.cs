@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace algStorage.DAL.Entities
+namespace algStorage.DAL_ADO.Domain
 {
     public class Algorithm
     {

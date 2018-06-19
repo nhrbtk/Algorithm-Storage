@@ -6,8 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
-using algStorage.DAL.Repositories;
-using algStorage.DAL.Entities;
+
+//using algStorage.DAL.Repositories;
+//using algStorage.DAL.Entities;
+
+using algStorage.DAL_ADO.Domain;
+using algStorage.DAL_ADO.Repositories;
+
+
 
 namespace algStorage.BLL.Tests
 {
@@ -20,14 +26,18 @@ namespace algStorage.BLL.Tests
         {
             //arrange
             var mock = new Mock<UserRepository>();
-            mock.Setup(a => a.GetAll());
+            mock.Setup(a => a.GetAll()).
+                Returns(new List<User>
+                {
+                    new User() { Username = "TESTINGUSERNAME", Password = "TESTINGPASSWORD"}
+                });
             UserOperation userOp = new UserOperation(mock.Object);
 
             //act
             bool actual = userOp.UserAuthentication("TESTINGUSERNAME", "TESTINGPASSWORD");
 
             //assert
-            Assert.IsFalse(actual);
+            Assert.IsTrue(actual);
         }
 
         [TestMethod()]
@@ -43,9 +53,7 @@ namespace algStorage.BLL.Tests
             //assert
             Assert.IsTrue(actual);
         }
-        /// <summary>
-        /// ////////////////////
-        /// </summary>
+
         [TestMethod()]
         public void UserAdd_falseReturned()
         {
@@ -55,7 +63,11 @@ namespace algStorage.BLL.Tests
             string pw = "password";
             bool role = false;
             mock.Setup(a => a.Create(new User { Username = un, Password = pw, Role = role }));
-            mock.Setup(a => a.GetAll());
+            mock.Setup(a => a.GetAll())
+                .Returns(new List<User>()
+                {
+                    new User{ Username=un, Password=pw, Role=role}
+                });
             UserOperation userOp = new UserOperation(mock.Object);
 
             //act

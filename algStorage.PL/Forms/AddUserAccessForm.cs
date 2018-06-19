@@ -14,30 +14,30 @@ namespace algStorage.PL.Forms
 {
     public partial class AddUserAccessForm : Form
     {
-        private AlgorithmOperation AO;
-        private UserOperation UO;
-        private GroupOperation GO;
+        private AlgorithmOperation algorithmOperation;
+        private UserOperation userOperation;
+        private GroupOperation groupOperation;
         private int algorithmId;
         private int userId;
-        public AddUserAccessForm(int _userId)
+        public AddUserAccessForm(int _userId, UserOperation _uo, AlgorithmOperation _ao, GroupOperation _go)
         {
             InitializeComponent();
             userId = _userId;
 
-            UO = new UserOperation();
-            AO = new AlgorithmOperation();
-            GO = new GroupOperation();
+            userOperation = _uo;
+            algorithmOperation = _ao;
+            groupOperation = _go;
 
-            algorithm_cb.DataSource = AO.GetUserAlgorithmTitles(userId);
+            algorithm_cb.DataSource = algorithmOperation.GetUserAlgorithmTitles(userId);
            
         }
 
         private void RebootLists()
         {
-            algorithmId = AO.GetAlgorithmID(userId, algorithm_cb.SelectedItem.ToString());
+            algorithmId = algorithmOperation.GetAlgorithmID(userId, algorithm_cb.SelectedItem.ToString());
 
-            usersAccessedList_listbox.DataSource = UO.GetUsernames(GO.GetUsersWithAccess(algorithmId));
-            usersDeniedList_listbox.DataSource = UO.GetUsernames().Except(UO.GetUsernames(GO.GetUsersWithAccess(algorithmId))).ToList();
+            usersAccessedList_listbox.DataSource = userOperation.GetUsernames(groupOperation.GetUsersWithAccess(algorithmId));
+            usersDeniedList_listbox.DataSource = userOperation.GetUsernames().Except(userOperation.GetUsernames(groupOperation.GetUsersWithAccess(algorithmId))).ToList();
         }
 
         private void algorithm_cb_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,8 +58,8 @@ namespace algStorage.PL.Forms
             int uId, aId;
             try
             {
-                uId = UO.GetUserId(usersDeniedList_listbox.SelectedItem.ToString());
-                aId = AO.GetAlgorithmID(userId, algorithm_cb.SelectedItem.ToString());
+                uId = userOperation.GetUserId(usersDeniedList_listbox.SelectedItem.ToString());
+                aId = algorithmOperation.GetAlgorithmID(userId, algorithm_cb.SelectedItem.ToString());
             }
             catch (Exception)
             {
@@ -67,7 +67,7 @@ namespace algStorage.PL.Forms
                 return;
             }
 
-            if (GO.AddAccess(uId, aId))
+            if (groupOperation.AddAccess(uId, aId))
             {
                 LogGiveAccess_label.Text = "Доступ надано";
                 usersDeniedList_listbox.BackColor = Color.FromArgb(192, 255, 192);
@@ -89,8 +89,8 @@ namespace algStorage.PL.Forms
             int uId, aId;
             try
             {
-                uId = UO.GetUserId(usersAccessedList_listbox.SelectedItem.ToString());
-                aId = AO.GetAlgorithmID(userId, algorithm_cb.SelectedItem.ToString());
+                uId = userOperation.GetUserId(usersAccessedList_listbox.SelectedItem.ToString());
+                aId = algorithmOperation.GetAlgorithmID(userId, algorithm_cb.SelectedItem.ToString());
             }
             catch (Exception)
             {
@@ -98,7 +98,7 @@ namespace algStorage.PL.Forms
                 return;
             }
 
-            if (GO.DeleteAccess(uId, aId))
+            if (groupOperation.DeleteAccess(uId, aId))
             {
                 LogCloseAccess_label.Text = "Доступ закрито";
                 usersAccessedList_listbox.BackColor = Color.FromArgb(192, 255, 192);

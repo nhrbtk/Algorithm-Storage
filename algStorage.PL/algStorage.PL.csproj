@@ -166,6 +166,10 @@
       <Project>{4086f62a-d079-4eed-aead-72838839681e}</Project>
       <Name>algStorage.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\algStorage.DAL.ADO\algStorage.DAL_ADO.csproj">
+      <Project>{8662ada1-817b-4fc4-97d0-ce107f50ead9}</Project>
+      <Name>algStorage.DAL_ADO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\algStorage.DAL\algStorage.DAL.csproj">
       <Project>{ad3c24b7-e633-4cc9-bb45-2f27d2413874}</Project>
       <Name>algStorage.DAL</Name>

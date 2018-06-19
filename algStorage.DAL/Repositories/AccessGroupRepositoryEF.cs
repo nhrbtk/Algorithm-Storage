@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using algStorage.DAL.Entities;
+
+using algStorage.DAL_ADO.Domain;
+using algStorage.DAL_ADO.Repositories;
 using System.Data.Entity;
 using algStorage.DAL.EF;
 
 namespace algStorage.DAL.Repositories
 {
-    public class AccessGroupRepository:IRepository<AccessGroup>
+    public class AccessGroupRepositoryEF:IRepository<AccessGroup>
     {
         private AlgorithmStorageContext db;
-        public AccessGroupRepository()
+        public AccessGroupRepositoryEF()
         {
             db = new AlgorithmStorageContext();
         }
         public void Create(AccessGroup accessGroup)
         {
             db.AccessGroups.Add(accessGroup);
+            db.SaveChanges();
         }
 
         public AccessGroup Read(int id)
@@ -29,6 +32,7 @@ namespace algStorage.DAL.Repositories
         public void Update(AccessGroup accessGroup)
         {
             db.Entry(accessGroup).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         public void Delete(int id)
@@ -36,6 +40,7 @@ namespace algStorage.DAL.Repositories
             AccessGroup accessGroup = db.AccessGroups.Find(id);
             if (accessGroup != null)
                 db.AccessGroups.Remove(accessGroup);
+            db.SaveChanges();
         }
 
         public IEnumerable<AccessGroup> GetAll()
@@ -43,9 +48,5 @@ namespace algStorage.DAL.Repositories
             return db.AccessGroups;
         }
 
-        public void Save()
-        {
-            db.SaveChanges();
-        }
     }
 }

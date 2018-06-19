@@ -14,16 +14,16 @@ namespace algStorage.PL.Forms
 {
     public partial class ChooseFileForm : Form
     {
-        private AlgorithmOperation AO;
-        private GroupOperation GO;
+        private AlgorithmOperation algorithmOperation;
+        private GroupOperation groupOperation;
         private int USERID;
-        public ChooseFileForm(int _userId)
+        public ChooseFileForm(int _userId, AlgorithmOperation _ao, GroupOperation _go)
         {
             InitializeComponent();
-            AO = new AlgorithmOperation();
-            GO = new GroupOperation();
+            algorithmOperation = _ao;
+            groupOperation = _go;
             USERID = _userId;
-            algList_listbox.DataSource = AO.GetTitles(USERID);
+            algList_listbox.DataSource = algorithmOperation.GetTitles(USERID);
         }
 
         private void choose_btn_Click(object sender, EventArgs e)
@@ -35,17 +35,17 @@ namespace algStorage.PL.Forms
         {
             if(MessageBox.Show($"Ви впевнені, що хочете видалити алгоритм '{algList_listbox.SelectedItem.ToString()}'?", "Видалення", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                int algId = AO.GetAlgorithmID(USERID, algList_listbox.SelectedItem.ToString());
+                int algId = algorithmOperation.GetAlgorithmID(USERID, algList_listbox.SelectedItem.ToString());
 
-                var links = GO.GetUsersWithAccess(algId);
+                var links = groupOperation.GetUsersWithAccess(algId);
 
                 foreach (var l in links)
-                    GO.DeleteAccess(l, algId);
+                    groupOperation.DeleteAccess(l, algId);
 
-                if (!AO.DeleteAlgorithm(algId))
+                if (!algorithmOperation.DeleteAlgorithm(algId))
                     MessageBox.Show("Щось пішло не так", "Помилка", MessageBoxButtons.OK);
                 else
-                    algList_listbox.DataSource = AO.GetTitles(USERID);
+                    algList_listbox.DataSource = algorithmOperation.GetTitles(USERID);
             }
         }
 

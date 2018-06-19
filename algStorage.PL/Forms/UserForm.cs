@@ -19,9 +19,10 @@ namespace algStorage.PL.Forms
         private int ALGORITHMID;
         private bool admin;
         private bool IsActive = false;
-        private AlgorithmOperation AO;
-        private UserOperation UO;
-        public UserForm(int _userId, bool _admin)
+        private AlgorithmOperation algoritmOperation;
+        private UserOperation userOperation;
+        private GroupOperation groupOperation;
+        public UserForm(int _userId, bool _admin, UserOperation _uo, AlgorithmOperation _ao, GroupOperation _go)
         {
             InitializeComponent();
 
@@ -32,8 +33,9 @@ namespace algStorage.PL.Forms
             списокКористувачівToolStripMenuItem.Visible = всіАлгоритмиToolStripMenuItem.Visible = admin;
             списокКористувачівToolStripMenuItem.Enabled = всіАлгоритмиToolStripMenuItem.Enabled = admin;
 
-            AO = new AlgorithmOperation();
-            UO = new UserOperation();
+            userOperation = _uo;
+            algoritmOperation = _ao;
+            groupOperation = _go;
         }
 
         private void save_btn_Click(object sender, EventArgs e)
@@ -44,16 +46,16 @@ namespace algStorage.PL.Forms
                 return;
             }
 
-            if (AO.TitleExists(USERID, title_tb.Text))
+            if (algoritmOperation.TitleExists(USERID, title_tb.Text))
             {
                 if (MessageBox.Show("Файл з такою назвою вже існує.\nПерезаписати?", "Помилка", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (!AO.AddAlgorithm(USERID, title_tb.Text, main_rtb.Text, input_rtb.Text, output_rtb.Text))
+                    if (!algoritmOperation.AddAlgorithm(USERID, title_tb.Text, main_rtb.Text, input_rtb.Text, output_rtb.Text))
                         MessageBox.Show("Проблема запису файлу", "Помилка", MessageBoxButtons.OK);
                     else
                     {
                         log_label.Text = "Файл записано";
-                        ALGORITHMID = AO.GetAlgorithmID(USERID, title_tb.Text);
+                        ALGORITHMID = algoritmOperation.GetAlgorithmID(USERID, title_tb.Text);
                         log_timer.Interval = 3000;
                         log_label.Show();
                         log_timer.Tick += (s, ea) =>
@@ -67,12 +69,12 @@ namespace algStorage.PL.Forms
             }
             else
             {
-                if (!AO.AddAlgorithm(USERID, title_tb.Text, main_rtb.Text, input_rtb.Text, output_rtb.Text))
+                if (!algoritmOperation.AddAlgorithm(USERID, title_tb.Text, main_rtb.Text, input_rtb.Text, output_rtb.Text))
                     MessageBox.Show("Проблема запису файлу", "Помилка", MessageBoxButtons.OK);
                 else
                 {
                     log_label.Text = "Файл записано";
-                    ALGORITHMID = AO.GetAlgorithmID(USERID, title_tb.Text);
+                    ALGORITHMID = algoritmOperation.GetAlgorithmID(USERID, title_tb.Text);
                     log_timer.Interval = 3000;
                     log_label.Show();
                     log_timer.Tick += (s, ea) =>
@@ -107,17 +109,17 @@ namespace algStorage.PL.Forms
             }
             
 
-            ChooseFileForm CFF = new ChooseFileForm(USERID);
+            ChooseFileForm CFF = new ChooseFileForm(USERID, algoritmOperation, groupOperation);
 
             if (CFF.ShowDialog() == DialogResult.OK)
             {
                 IsActive = true;
                 
                 string selected = CFF.algList_listbox.SelectedItem.ToString();
-                ALGORITHMID = AO.GetAlgorithmID(USERID, selected);
-                main_rtb.Text = AO.GetAlgoritmCode(ALGORITHMID);
-                input_rtb.Text = AO.GetAlgoritmInput(ALGORITHMID);
-                output_rtb.Text = AO.GetAlgoritmOutput(ALGORITHMID);
+                ALGORITHMID = algoritmOperation.GetAlgorithmID(USERID, selected);
+                main_rtb.Text = algoritmOperation.GetAlgoritmCode(ALGORITHMID);
+                input_rtb.Text = algoritmOperation.GetAlgoritmInput(ALGORITHMID);
+                output_rtb.Text = algoritmOperation.GetAlgoritmOutput(ALGORITHMID);
                 title_tb.Text = selected;
             }
 
@@ -130,31 +132,31 @@ namespace algStorage.PL.Forms
 
         private void всіАлгоритмиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AllFilesForm AFL = new AllFilesForm();
+            AllFilesForm AFL = new AllFilesForm(userOperation, algoritmOperation);
             if (AFL.ShowDialog() == DialogResult.OK & AFL.algorithmList_listbox.SelectedIndex != -1)
             {
-                ALGORITHMID = AO.GetAlgorithmID(UO.GetUserId(AFL.usersList_listbox.SelectedItem.ToString()), AFL.algorithmList_listbox.SelectedItem.ToString());
-                main_rtb.Text = AO.GetAlgoritmCode(ALGORITHMID);
-                input_rtb.Text = AO.GetAlgoritmInput(ALGORITHMID);
-                output_rtb.Text = AO.GetAlgoritmOutput(ALGORITHMID);
+                ALGORITHMID = algoritmOperation.GetAlgorithmID(userOperation.GetUserId(AFL.usersList_listbox.SelectedItem.ToString()), AFL.algorithmList_listbox.SelectedItem.ToString());
+                main_rtb.Text = algoritmOperation.GetAlgoritmCode(ALGORITHMID);
+                input_rtb.Text = algoritmOperation.GetAlgoritmInput(ALGORITHMID);
+                output_rtb.Text = algoritmOperation.GetAlgoritmOutput(ALGORITHMID);
             }
         }
 
         private void мійПрофільToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyProfileInfoForm MPIF = new MyProfileInfoForm(USERID);
+            MyProfileInfoForm MPIF = new MyProfileInfoForm(USERID, userOperation, algoritmOperation);
             MPIF.ShowDialog();
         }
 
         private void списокКористувачівToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AllUsersForm AUF = new AllUsersForm();
+            AllUsersForm AUF = new AllUsersForm(userOperation, algoritmOperation, groupOperation);
             AUF.ShowDialog();
         }
 
         private void надатиДоступІншимToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddUserAccessForm AUAF = new AddUserAccessForm(USERID);
+            AddUserAccessForm AUAF = new AddUserAccessForm(USERID, userOperation, algoritmOperation, groupOperation);
             AUAF.ShowDialog();
         }
 
@@ -175,17 +177,17 @@ namespace algStorage.PL.Forms
 
         private void алгоритмиІншихКористувачівToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OtherUsersAlgorithmsForm OUALF = new OtherUsersAlgorithmsForm(USERID);
+            OtherUsersAlgorithmsForm OUALF = new OtherUsersAlgorithmsForm(USERID, userOperation, algoritmOperation, groupOperation);
             
             if(OUALF.ShowDialog()==DialogResult.OK)
             {
                 IsActive = true;
-                int uId = UO.GetUserId(OUALF.userList_cb.SelectedItem.ToString());
+                int uId = userOperation.GetUserId(OUALF.userList_cb.SelectedItem.ToString());
                 string selected = OUALF.algorithmList_listbox.SelectedItem.ToString();
-                ALGORITHMID = AO.GetAlgorithmID(uId, selected);
-                main_rtb.Text = AO.GetAlgoritmCode(ALGORITHMID);
-                input_rtb.Text = AO.GetAlgoritmInput(ALGORITHMID);
-                output_rtb.Text = AO.GetAlgoritmOutput(ALGORITHMID);
+                ALGORITHMID = algoritmOperation.GetAlgorithmID(uId, selected);
+                main_rtb.Text = algoritmOperation.GetAlgoritmCode(ALGORITHMID);
+                input_rtb.Text = algoritmOperation.GetAlgoritmInput(ALGORITHMID);
+                output_rtb.Text = algoritmOperation.GetAlgoritmOutput(ALGORITHMID);
                 title_tb.Text = selected;
             }
         }

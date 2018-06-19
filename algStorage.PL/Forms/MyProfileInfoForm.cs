@@ -14,22 +14,22 @@ namespace algStorage.PL.Forms
 {
     public partial class MyProfileInfoForm : Form
     {
-        private UserOperation UO;
-        private AlgorithmOperation AO;
+        private UserOperation userOperation;
+        private AlgorithmOperation algorithmOperation;
         private int userId;
-        public MyProfileInfoForm(int _userId)
+        public MyProfileInfoForm(int _userId, UserOperation _uo, AlgorithmOperation _ao)
         {
             InitializeComponent();
-            UO = new UserOperation();
-            AO = new AlgorithmOperation();
+            userOperation = _uo;
+            algorithmOperation = _ao;
             userId = _userId;
 
-            username_label.Text = $"Ім'я користувача: {UO.GetUsername(userId)}";
+            username_label.Text = $"Ім'я користувача: {userOperation.GetUsername(userId)}";
 
-            string type = UO.UserAuthorization(userId) ? "Адміністратор" : "Користувач";
+            string type = userOperation.UserAuthorization(userId) ? "Адміністратор" : "Користувач";
             role_label.Text = $"Тип профілю: {type}";
 
-            algorithmsCount_label.Text = $"Кількість алгоритмів у сховищі: {AO.GetUserAlgoritms(userId).Count().ToString()}";
+            algorithmsCount_label.Text = $"Кількість алгоритмів у сховищі: {algorithmOperation.GetUserAlgoritms(userId).Count().ToString()}";
         }
 
         private void ChangePassword_btn_Click(object sender, EventArgs e)
@@ -46,11 +46,11 @@ namespace algStorage.PL.Forms
                 return;
             }
 
-            if (!UO.UserAuthentication(UO.GetUsername(userId), oldPassword_tb.Text))
+            if (!userOperation.UserAuthentication(userOperation.GetUsername(userId), oldPassword_tb.Text))
                 MessageBox.Show("Теперішній пароль не співпадає", "Теперішній пароль", MessageBoxButtons.OK);
             else
             {
-                if (!UO.UserChangePassword(userId, newPassword_tb.Text))
+                if (!userOperation.UserChangePassword(userId, newPassword_tb.Text))
                     MessageBox.Show("Щось пішло не так", "Виникла проблема", MessageBoxButtons.OK);
                 else
                     MessageBox.Show("Пароль змінено!", "Успішно", MessageBoxButtons.OK);

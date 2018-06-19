@@ -14,32 +14,32 @@ namespace algStorage.PL.Forms
 {
     public partial class AllUsersForm : Form
     {
-        private AlgorithmOperation AO;
-        private UserOperation UO;
-        private GroupOperation GO;
-        public AllUsersForm()
+        private AlgorithmOperation algorithmOperation;
+        private UserOperation userOperation;
+        private GroupOperation groupOperation;
+        public AllUsersForm(UserOperation _uo, AlgorithmOperation _ao, GroupOperation _go)
         {
             InitializeComponent();
-            UO = new UserOperation();
-            AO = new AlgorithmOperation();
-            GO = new GroupOperation();
-            usersList_listbox.DataSource = UO.GetUsernames();
+            userOperation = _uo;
+            algorithmOperation = _ao;
+            groupOperation = _go;
+            usersList_listbox.DataSource = userOperation.GetUsernames();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Ви впевнені, що хочете видалити цього користувача та всі його алгоритми?", "Попередження", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                int uId = UO.GetUserId(usersList_listbox.SelectedItem.ToString());
-                var algs = AO.GetUserAlgoritms(uId);
-                var accessedAlgorithms = GO.GetAccessedAlgorithms(uId);
+                int uId = userOperation.GetUserId(usersList_listbox.SelectedItem.ToString());
+                var algs = algorithmOperation.GetUserAlgoritms(uId);
+                var accessedAlgorithms = groupOperation.GetAccessedAlgorithms(uId);
                 foreach (var a in accessedAlgorithms)
-                    GO.DeleteAccess(uId, a);
+                    groupOperation.DeleteAccess(uId, a);
                 foreach (var a in algs)
-                    AO.DeleteAlgorithm(a);
-                UO.UserDelete(uId);
-                AO.DeleteDirectory(uId);
-                usersList_listbox.DataSource = UO.GetUsernames();
+                    algorithmOperation.DeleteAlgorithm(a);
+                userOperation.UserDelete(uId);
+                algorithmOperation.DeleteDirectory(uId);
+                usersList_listbox.DataSource = userOperation.GetUsernames();
             }
         }
     }

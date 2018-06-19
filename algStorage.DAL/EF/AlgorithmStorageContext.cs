@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using algStorage.DAL.Entities;
+using algStorage.DAL_ADO.Domain;
 
 namespace algStorage.DAL.EF
 {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.DAL", "algStorage.DAL\algStorage.DAL.csproj", "{AD3C24B7-E633-4CC9-BB45-2F27D2413874}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.BLL.Tests", "alg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.PL", "algStorage.PL\algStorage.PL.csproj", "{D886B2F3-241A-42B4-9280-172ADEAFE80C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.DAL.ADO", "algStorage.DAL.ADO\algStorage.DAL.ADO.csproj", "{8662ADA1-817B-4FC4-97D0-CE107F50EAD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algStorage.DAL_ADO", "algStorage.DAL.ADO\algStorage.DAL_ADO.csproj", "{8662ADA1-817B-4FC4-97D0-CE107F50EAD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

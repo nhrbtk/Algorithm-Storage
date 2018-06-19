@@ -4,18 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using algStorage.DAL.Repositories;
-using algStorage.DAL.Entities;
+using algStorage.DAL_ADO.Domain;
+using algStorage.DAL_ADO.Repositories;
 
 namespace algStorage.BLL
 {
     public class GroupOperation
     {
-        private AccessGroupRepository accessGroupRepository;
+        private IRepository<AccessGroup> accessGroupRepository;
 
         public GroupOperation()
         {
             accessGroupRepository = new AccessGroupRepository();
+        }
+
+        public GroupOperation(IRepository<AccessGroup> _agr)
+        {
+            accessGroupRepository = _agr;
         }
 
         public bool AddAccess(int userId, int algorithmId)
@@ -23,7 +28,6 @@ namespace algStorage.BLL
             try
             {
                 accessGroupRepository.Create(new AccessGroup { UserId = userId, AlgorithmId = algorithmId });
-                accessGroupRepository.Save();
                 return true;
             }
             catch (Exception)
@@ -38,7 +42,6 @@ namespace algStorage.BLL
             {
                 var item = accessGroupRepository.GetAll().Single(ag => ag.UserId == userId & ag.AlgorithmId == algorithmId);
                 accessGroupRepository.Delete(item.Id);
-                accessGroupRepository.Save();
                 return true;
             }
             catch (Exception)

@@ -14,11 +14,11 @@ namespace algStorage.PL.Forms
 {
     public partial class RegistrationForm : Form
     {
-        private UserOperation UO;
-        public RegistrationForm()
+        private UserOperation userOperation;
+        public RegistrationForm(UserOperation _uo)
         {
             InitializeComponent();
-            UO = new UserOperation();
+            userOperation = _uo;
         }
 
         private void registration_btn_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace algStorage.PL.Forms
             }
                 
 
-            if (UO.UserAdd(username_tb.Text, password_tb.Text, admin_checkbox.Checked))
+            if (userOperation.UserAdd(username_tb.Text, password_tb.Text, admin_checkbox.Checked))
             {
                 MessageBox.Show("Користувача створено!", "Вітаємо!", MessageBoxButtons.OK);
                 Close();

@@ -34,6 +34,8 @@
             this.password_label = new System.Windows.Forms.Label();
             this.CheckUser_btn = new System.Windows.Forms.Button();
             this.registration_btn = new System.Windows.Forms.Button();
+            this.ado_rb = new System.Windows.Forms.RadioButton();
+            this.ef_rb = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // username_tb
@@ -91,12 +93,38 @@
             this.registration_btn.UseVisualStyleBackColor = true;
             this.registration_btn.Click += new System.EventHandler(this.registration_btn_Click);
             // 
+            // ado_rb
+            // 
+            this.ado_rb.AutoSize = true;
+            this.ado_rb.Checked = true;
+            this.ado_rb.Location = new System.Drawing.Point(12, 139);
+            this.ado_rb.Name = "ado_rb";
+            this.ado_rb.Size = new System.Drawing.Size(73, 17);
+            this.ado_rb.TabIndex = 6;
+            this.ado_rb.TabStop = true;
+            this.ado_rb.Text = "ADO.NET";
+            this.ado_rb.UseVisualStyleBackColor = true;
+            this.ado_rb.CheckedChanged += new System.EventHandler(this.ado_rb_CheckedChanged);
+            // 
+            // ef_rb
+            // 
+            this.ef_rb.AutoSize = true;
+            this.ef_rb.Location = new System.Drawing.Point(12, 162);
+            this.ef_rb.Name = "ef_rb";
+            this.ef_rb.Size = new System.Drawing.Size(106, 17);
+            this.ef_rb.TabIndex = 7;
+            this.ef_rb.Text = "Entity Framework";
+            this.ef_rb.UseVisualStyleBackColor = true;
+            this.ef_rb.CheckedChanged += new System.EventHandler(this.ef_rb_CheckedChanged);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.CheckUser_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 191);
+            this.Controls.Add(this.ef_rb);
+            this.Controls.Add(this.ado_rb);
             this.Controls.Add(this.registration_btn);
             this.Controls.Add(this.CheckUser_btn);
             this.Controls.Add(this.password_label);
@@ -123,6 +151,8 @@
         private System.Windows.Forms.Label password_label;
         private System.Windows.Forms.Button CheckUser_btn;
         private System.Windows.Forms.Button registration_btn;
+        private System.Windows.Forms.RadioButton ado_rb;
+        private System.Windows.Forms.RadioButton ef_rb;
     }
 }
 

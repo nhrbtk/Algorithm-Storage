@@ -4,22 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using algStorage.DAL;
-using algStorage.DAL.Entities;
-using algStorage.DAL.Repositories;
-
+using algStorage.DAL_ADO.Domain;
+using algStorage.DAL_ADO.Repositories;
 
 namespace algStorage.BLL
 {
     public class UserOperation
     {
-        private UserRepository userRepository;
+        private IRepository<User> userRepository;
         public UserOperation()
         {
-            userRepository = new UserRepository();
+            //userRepository = new UserRepository();
         }
 
-        public UserOperation(UserRepository _ur)
+        public UserOperation(IRepository<User> _ur)
         {
             userRepository = _ur;
         }
@@ -106,7 +104,6 @@ namespace algStorage.BLL
                     };
 
                     userRepository.Create(user);
-                    userRepository.Save();
                     return true;
                 }
                 else
@@ -123,7 +120,6 @@ namespace algStorage.BLL
             try
             {
                 userRepository.Delete(id);
-                userRepository.Save();
                 return true;
             }
             catch (Exception)
@@ -136,7 +132,7 @@ namespace algStorage.BLL
         {
             try
             {
-                User user = new User { Username = username, Password = password };
+                // User user = new User { Username = username, Password = password };
                 if (userRepository.GetAll().Single(u=>u.Username==username).Password==password)
                     return true;
                 else
@@ -168,7 +164,6 @@ namespace algStorage.BLL
                 user.Password = newPassword;
 
                 userRepository.Update(user);
-                userRepository.Save();
                 return true;
             }
             catch (Exception)

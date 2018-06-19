@@ -14,21 +14,21 @@ namespace algStorage.PL.Forms
 {
     public partial class AllFilesForm : Form
     {
-        private UserOperation UO;
-        private AlgorithmOperation AO;
-        public AllFilesForm()
+        private UserOperation userOperation;
+        private AlgorithmOperation algorithmOperation;
+        public AllFilesForm(UserOperation _uo, AlgorithmOperation _ao)
         {
             InitializeComponent();
 
-            UO = new UserOperation();
-            AO = new AlgorithmOperation();
+            userOperation = _uo;
+            algorithmOperation = _ao;
 
-            usersList_listbox.DataSource = UO.GetUsernames();
+            usersList_listbox.DataSource = userOperation.GetUsernames();
         }
 
         private void usersList_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            algorithmList_listbox.DataSource = AO.GetUserAlgorithmTitles(UO.GetUserId(usersList_listbox.SelectedItem.ToString()));
+            algorithmList_listbox.DataSource = algorithmOperation.GetUserAlgorithmTitles(userOperation.GetUserId(usersList_listbox.SelectedItem.ToString()));
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
@@ -42,10 +42,10 @@ namespace algStorage.PL.Forms
             {
                 if (MessageBox.Show("Ви впевнені, що хочете видалити цей алгоритм?", "Видалення", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (!AO.DeleteAlgorithm(AO.GetAlgorithmID(UO.GetUserId(usersList_listbox.SelectedItem.ToString()), algorithmList_listbox.SelectedItem.ToString())))
+                    if (!algorithmOperation.DeleteAlgorithm(algorithmOperation.GetAlgorithmID(userOperation.GetUserId(usersList_listbox.SelectedItem.ToString()), algorithmList_listbox.SelectedItem.ToString())))
                         MessageBox.Show("Не вдалось видалити файл", "Невдача", MessageBoxButtons.OK);
                     else
-                        algorithmList_listbox.DataSource = AO.GetUserAlgorithmTitles(UO.GetUserId(usersList_listbox.SelectedItem.ToString()));
+                        algorithmList_listbox.DataSource = algorithmOperation.GetUserAlgorithmTitles(userOperation.GetUserId(usersList_listbox.SelectedItem.ToString()));
                 }
             }
         }
