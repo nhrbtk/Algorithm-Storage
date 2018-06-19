@@ -7,9 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 
-//using algStorage.DAL.Repositories;
-//using algStorage.DAL.Entities;
-
 using algStorage.DAL_ADO.Domain;
 using algStorage.DAL_ADO.Repositories;
 
@@ -45,6 +42,11 @@ namespace algStorage.BLL.Tests
         {
             //arrange
             var mock = new Mock<UserRepository>();
+            mock.Setup(a => a.GetAll())
+                .Returns(new List<User>()
+                {
+                    new User{ Username="u", Password="pw", Role=false}
+                });
             UserOperation userOp = new UserOperation(mock.Object);
 
             //act
@@ -62,12 +64,12 @@ namespace algStorage.BLL.Tests
             string un = "username";
             string pw = "password";
             bool role = false;
-            mock.Setup(a => a.Create(new User { Username = un, Password = pw, Role = role }));
             mock.Setup(a => a.GetAll())
                 .Returns(new List<User>()
                 {
                     new User{ Username=un, Password=pw, Role=role}
                 });
+            
             UserOperation userOp = new UserOperation(mock.Object);
 
             //act

@@ -43,7 +43,7 @@ namespace algStorage.DAL.Repositories
             db.SaveChanges();
         }
 
-        public IEnumerable<Algorithm> GetAll()
+        public virtual IEnumerable<Algorithm> GetAll()
         {
             return db.Algorithms;
         }

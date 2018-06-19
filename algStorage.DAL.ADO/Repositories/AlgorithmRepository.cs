@@ -22,7 +22,7 @@ namespace algStorage.DAL_ADO.Repositories
             sqlConnection = new SqlConnection(ConnectString);
         }
 
-        public IEnumerable<Algorithm> GetAll()
+        public virtual IEnumerable<Algorithm> GetAll()
         {
             List<Algorithm> algorithms = new List<Algorithm>();
 
